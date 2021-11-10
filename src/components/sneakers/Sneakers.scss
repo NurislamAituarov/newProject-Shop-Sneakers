@@ -1,0 +1,52 @@
+.sneakers_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 50px 0px;
+  .sneakers_card {
+    .sneakers_img {
+      height: 180px;
+    }
+    cursor: pointer;
+    transition: 0.5s;
+    h4 {
+      font-weight: 400;
+      margin: 20px 0px;
+    }
+    border: 1px solid rgba(211, 211, 211, 0.4);
+    border-radius: 40px;
+    padding: 40px 50px;
+    .sneakers_card_price {
+      text-align: start;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      button {
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 5px 10px;
+        border: 1px solid rgb(129, 129, 129, 0.3);
+        background: none;
+        opacity: 0.3;
+        font-weight: bold;
+        font-size: 20px;
+        transition: 0.5s;
+      }
+      button:hover {
+        background-color: black;
+        color: white;
+      }
+      div p:nth-child(1) {
+        opacity: 0.3;
+        margin-bottom: 2px;
+      }
+      div p:nth-child(2) {
+        font-weight: bold;
+      }
+    }
+  }
+}
+.sneakers_card:hover {
+  box-shadow: 1px 1px 5px 5px rgb(214, 214, 214, 0.3);
+}
