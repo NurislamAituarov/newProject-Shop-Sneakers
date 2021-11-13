@@ -15,7 +15,7 @@ const Slider = () => {
       transform = 0;
       blockWrapper.current.style.transform = `translateX(-${transform}%)`;
     } else {
-      transform += 33.8;
+      transform += 33.3;
       blockWrapper.current.style.transform = `translateX(-${transform}%)`;
     }
   };

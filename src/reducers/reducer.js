@@ -75,15 +75,15 @@ const initialState = {
   ],
   sliderCard: [
     {
-      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMuNtb7DnVYgeuU2eHmb63LkHuEpOIek6sgQ&usqp=CAU',
+      url: 'https://assets.turbologo.ru/blog/ru/2021/06/03041303/nike-logo-1978.png',
       id: 1,
     },
     {
-      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9Uh7xOws9YrcinvXfm10BSM2SA_gOfRxr3A&usqp=CAU',
+      url: 'https://postium.ru/wp-content/uploads/2019/04/2-Adidas.png',
       id: 2,
     },
     {
-      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPr-WKAd1AgUd4NIJFTHM8OFqsQPhUBTAtdmilXrc2fHG4kIi1AhKWOOf19s2H8RB9vWo&usqp=CAU',
+      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt0i_ZpkavbVI-uL6cr_MdcOksWHMpZD1zlg4YEbIVt5NV14ept8ULIwngr2V03dja7lc&usqp=CAU',
       id: 3,
     },
   ],
@@ -111,6 +111,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         addedBasketArr: state.addedBasketArr.filter((item) => item.id !== action.payload),
       };
+    case 'REMOVE_FROM_TRASH_ALL':
+      return {
+        ...state,
+        addedBasketArr: [],
+      };
     case 'LIKE_ITEM':
       return {
         ...state,
@@ -120,6 +125,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         likedArr: state.likedArr.filter((item) => item.id !== action.payload),
+      };
+    case 'SEARCH_VALUE':
+      return {
+        ...state,
+        searchValue: action.payload,
       };
     default:
       return state;

@@ -1,16 +1,44 @@
 import './basket.scss';
-
+import { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromTrash } from '../../actions/action';
+import { removeFromTrash, removeFromTrashAll } from '../../actions/action';
 
 const Basket = ({ basketRef, content, setBasket }) => {
   const addedBasketItem = useSelector((state) => state.addedBasketArr);
   const dispatch = useDispatch();
-  // console.log(addedBasketItem);
+  const checkoutRef = useRef();
 
+  const object = {};
   let price = addedBasketItem.reduce((acu, el) => {
     return el.price + acu;
   }, 0);
+
+  function onSubmit() {
+    addedBasketItem.forEach((item) => {
+      object.name = object.name ? object.name + ' , ' + item.name : item.name;
+      object.price = object.price ? object.price + item.price : item.price;
+    });
+    const div = document.createElement('div');
+    div.classList.add('loading');
+    div.innerHTML = 'Loading...';
+    checkoutRef.current.prepend(div);
+
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(object),
+    })
+      .then((response) => {
+        div.innerHTML = 'Оплата прошла успешна...';
+        return response.text();
+      })
+      .then((data) => console.log(data))
+      .finally(() => {
+        setTimeout(() => {
+          dispatch(removeFromTrashAll());
+        }, 500);
+      });
+  }
 
   return (
     <div ref={basketRef} className="basket">
@@ -52,10 +80,10 @@ const Basket = ({ basketRef, content, setBasket }) => {
           </div>
         )}
         {addedBasketItem.length !== 0 ? (
-          <div className="checkout">
+          <div ref={checkoutRef} className="checkout">
             <p>Итоги: .............................{price} руб.</p>
             <p>Налог 5%: ......................{(price * 5) / 100} руб.</p>
-            <span>
+            <span onClick={onSubmit}>
               Оформить заказ{' '}
               <img
                 src="https://cdn-icons-png.flaticon.com/512/1053/1053190.png"

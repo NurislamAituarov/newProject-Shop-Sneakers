@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
-  console.log('render');
+  // console.log('render');
   const { addedBasketArr, likedArr } = useSelector((state) => state);
   const [basket, setBasket] = useState(false);
   const basketRef = useRef();
@@ -65,7 +65,7 @@ const Header = () => {
               />
               <span>{price} P</span>
             </li>
-            <NavLink ref={transformLike} to="/Purchases" onClick={() => console.log('click')}>
+            <NavLink ref={transformLike} to="/Purchases">
               {likedArr.length === 0 ? (
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/3388/3388803.png"
@@ -90,6 +90,7 @@ const Header = () => {
           </ul>
         </nav>
       </header>
+
       {basket ? <Basket basketRef={basketRef} content={content} setBasket={setBasket} /> : null}
     </>
   );

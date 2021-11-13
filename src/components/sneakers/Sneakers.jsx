@@ -14,7 +14,6 @@ const Sneakers = memo(({ item }) => {
 
   useEffect(() => {
     // console.log(likedArr);
-
     if (likedArr.length > 0) {
       likedArr.forEach((el) => {
         if (el.id === item.id) {
@@ -23,6 +22,7 @@ const Sneakers = memo(({ item }) => {
       });
     }
   }, [likedArr]);
+
   useEffect(() => {
     if (addedBasketArr.length > 0) {
       addedBasketArr.forEach((el) => {

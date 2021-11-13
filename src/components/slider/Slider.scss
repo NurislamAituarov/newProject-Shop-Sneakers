@@ -1,7 +1,7 @@
 .slider_wrapper {
   max-width: 100%;
   min-height: 300px;
-  padding: 20px;
+  padding: 40px;
   margin-bottom: 50px;
   background-color: #f4efe9;
   border-radius: 25px;
@@ -10,7 +10,7 @@
   position: relative;
   .block_right {
     position: absolute;
-    right: 5px;
+    right: 20px;
     top: 45%;
     cursor: pointer;
     background-color: #f4efe9;
@@ -68,6 +68,9 @@
     transition: 1s;
     width: 300%;
     display: flex;
+    img {
+      height: 421px;
+    }
   }
 }
 .block_item {

@@ -1,12 +1,21 @@
-import { useSelector } from 'react-redux';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { addedBasket, removeLikedItem } from '../../actions/action';
 import './purchases.scss';
 import { NavLink } from 'react-router-dom';
 
 const Purchases = () => {
+  // console.log('render');
   const likedArr = useSelector((state) => state.likedArr);
+  const dispatch = useDispatch();
+  const [like, setLike] = useState(false);
 
-  console.log(likedArr);
+  useEffect(() => {
+    if (likedArr) {
+      setLike(true);
+    }
+  }, [likedArr]);
+  // console.log(likedArr);
   return (
     <>
       <div className="liked">
@@ -20,6 +29,15 @@ const Purchases = () => {
           {likedArr.map((item) => {
             return (
               <div key={item.id} className="sneakers_card">
+                {like && (
+                  <img
+                    onClick={() => dispatch(removeLikedItem(item.id))}
+                    width="50"
+                    className="like"
+                    src="https://cdn-icons.flaticon.com/png/512/4209/premium/4209081.png?token=exp=1636697373~hmac=be44ec65870e09a46061f012d039b644"
+                    alt="like"
+                  />
+                )}
                 <img width="180" height="180" src={item.url} alt="like" />
                 <h5>{item.name}</h5>
                 <div className="card_price">
@@ -27,7 +45,7 @@ const Purchases = () => {
                     <p>Цена</p>
                     <p>{item.price}</p>
                   </div>
-                  <button>+</button>
+                  <button onClick={() => dispatch(addedBasket(item))}>+</button>
                 </div>
               </div>
             );
