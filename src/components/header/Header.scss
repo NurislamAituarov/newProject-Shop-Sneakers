@@ -6,6 +6,9 @@ header {
   margin-bottom: 20px;
   .logo {
     width: 280px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
     img {
       width: 40px;
       float: left;
@@ -24,6 +27,9 @@ header {
       align-items: center;
       li {
         cursor: pointer;
+      }
+      a {
+        transition: 1s;
       }
       li:nth-child(1) {
         display: flex;

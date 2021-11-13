@@ -46,6 +46,8 @@
     }
   }
   button {
+    transition: 0.5s;
+    cursor: pointer;
     padding: 20px 60px;
     border-radius: 20px;
     margin-left: 70px;
@@ -54,9 +56,13 @@
     border: none;
     background-color: #a5d364;
   }
+  button:hover {
+    background-color: #63a30a;
+  }
 }
 .slider_right {
   // border: 1px solid black;
+  border-radius: 15px;
   overflow: hidden;
   .block_wrapper {
     transition: 1s;

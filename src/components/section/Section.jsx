@@ -1,7 +1,10 @@
 import Sneakers from '../sneakers/Sneakers';
 import './Section.scss';
+import { useSelector } from 'react-redux';
 
 const Section = () => {
+  let { arr } = useSelector((state) => state);
+
   return (
     <div className="section">
       <div className="header_section">
@@ -15,7 +18,24 @@ const Section = () => {
           <input type="text" placeholder="Поиск" />
         </div>
       </div>
-      <Sneakers />
+      <div className="sneakers_wrapper">
+        {arr.length !== 0
+          ? arr.map((item) => {
+              return <Sneakers key={item.id} item={item} />;
+            })
+          : [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => {
+              return (
+                <div className="sneakers_card skeleton">
+                  <div className="div"></div>
+                  <span></span>
+                  <div className="second">
+                    <p></p>
+                    <p className="p"></p>
+                  </div>
+                </div>
+              );
+            })}
+      </div>
     </div>
   );
 };

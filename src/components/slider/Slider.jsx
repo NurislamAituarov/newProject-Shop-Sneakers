@@ -1,21 +1,9 @@
 import './Slider.scss';
-import { useState, useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 const Slider = () => {
-  const [arr, setArr] = useState([
-    {
-      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMuNtb7DnVYgeuU2eHmb63LkHuEpOIek6sgQ&usqp=CAU',
-      id: 1,
-    },
-    {
-      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9Uh7xOws9YrcinvXfm10BSM2SA_gOfRxr3A&usqp=CAU',
-      id: 2,
-    },
-    {
-      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzhxoyInD3yuBrpEKH4QkeG0Bgwge7muWOwA&usqp=CAU',
-      id: 3,
-    },
-  ]);
+  const arr = useSelector((state) => state.sliderCard);
   const blockWrapper = useRef();
   let transform = 0;
   useEffect(() => {
@@ -27,7 +15,7 @@ const Slider = () => {
       transform = 0;
       blockWrapper.current.style.transform = `translateX(-${transform}%)`;
     } else {
-      transform += 33;
+      transform += 33.8;
       blockWrapper.current.style.transform = `translateX(-${transform}%)`;
     }
   };
