@@ -1,0 +1,37 @@
+.wrapper_bought {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+  .sneakers_card {
+    padding: 40px;
+    position: relative;
+    border: 1px solid rgb(177, 177, 177, 0.2);
+    border-radius: 20px;
+    .like_bought {
+      left: 20px;
+    }
+    #arrival_time {
+      display: block;
+      font-size: 12px;
+      margin-top: 15px;
+      color: red;
+      text-align: start;
+      div {
+        margin-top: 5px;
+      }
+    }
+    .card_price {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+.bought_text {
+  text-align: start;
+  margin-bottom: 30px;
+  margin-left: 40px;
+  font-size: 32px;
+}

@@ -1,14 +1,11 @@
 import './Slider.scss';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 const Slider = () => {
-  const arr = useSelector((state) => state.sliderCard);
+  const arr = useSelector((state) => state.reducer.sliderCard);
   const blockWrapper = useRef();
   let transform = 0;
-  useEffect(() => {
-    // console.log(blockWrapper);
-  });
 
   const sliderFurther = () => {
     if (transform >= 66) {

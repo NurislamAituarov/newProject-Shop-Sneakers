@@ -4,6 +4,7 @@ header {
   align-items: center;
   padding: 0px 50px;
   margin-bottom: 20px;
+
   .logo {
     width: 280px;
     cursor: pointer;
@@ -25,6 +26,7 @@ header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       li {
         cursor: pointer;
       }
@@ -40,4 +42,16 @@ header {
       }
     }
   }
+}
+
+#li_mouse {
+  transition: 1s;
+  position: relative;
+}
+.onMouse {
+  position: absolute;
+  top: -45px;
+  left: -15px;
+  color: rgb(206, 206, 206, 0.5);
+  font-size: 20px;
 }

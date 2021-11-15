@@ -1,10 +1,10 @@
 import './basket.scss';
 import { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromTrash, removeFromTrashAll } from '../../actions/action';
+import { removeFromTrash, removeFromTrashAll, boughtSneakers } from '../../actions/action';
 
 const Basket = ({ basketRef, content, setBasket }) => {
-  const addedBasketItem = useSelector((state) => state.addedBasketArr);
+  const addedBasketItem = useSelector((state) => state.basketReducer.addedBasketArr);
   const dispatch = useDispatch();
   const checkoutRef = useRef();
 
@@ -80,7 +80,7 @@ const Basket = ({ basketRef, content, setBasket }) => {
           </div>
         )}
         {addedBasketItem.length !== 0 ? (
-          <div ref={checkoutRef} className="checkout">
+          <div onClick={() => dispatch(boughtSneakers())} ref={checkoutRef} className="checkout">
             <p>Итоги: .............................{price} руб.</p>
             <p>Налог 5%: ......................{(price * 5) / 100} руб.</p>
             <span onClick={onSubmit}>

@@ -1,24 +1,29 @@
 import './App.css';
 import Header from '../header/Header';
-// import Main from '../main/Main';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import Purchases from '../purchases/Purchases';
 import { lazy, Suspense } from 'react';
+import ErrorBoundary from '../errorBoundary/errorBoundary';
 
 const Main = lazy(() => import('../main/Main'));
-const Purchases = lazy(() => import('../purchases/Purchases'));
+const Purchases = lazy(() => import('../selected/Selected'));
+const Bought = lazy(() => import('../bought/Bought'));
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
+        <ErrorBoundary>
+          <Header />
+        </ErrorBoundary>
         <hr />
         <Suspense fallback={<h1>Loading...</h1>}>
-          <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/Purchases" element={<Purchases />} />
-          </Routes>
+          <ErrorBoundary>
+            <Routes>
+              <Route path="/" element={<Main />} />
+              <Route path="/Purchases" element={<Purchases />} />
+              <Route path="/Bought" element={<Bought />} />
+            </Routes>
+          </ErrorBoundary>
         </Suspense>
       </div>
     </Router>

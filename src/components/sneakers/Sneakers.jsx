@@ -2,39 +2,16 @@ import './Sneakers.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { useEffect, useState, memo } from 'react';
+import { useState, memo } from 'react';
 import { addedBasket, removeFromTrash, likedItem, removeLikedItem } from '../../actions/action';
 
 const Sneakers = memo(({ item }) => {
-  // console.log('render');
-  const { addedBasketArr, likedArr } = useSelector((state) => state);
+  const { addedBasketArr } = useSelector((state) => state.basketReducer);
+  const { likedArr } = useSelector((state) => state.reducer);
   const dispatch = useDispatch();
-  const [itemSelected, setItemSelected] = useState(false);
   const [liked, setLiked] = useState(false);
 
-  useEffect(() => {
-    // console.log(likedArr);
-    if (likedArr.length > 0) {
-      likedArr.forEach((el) => {
-        if (el.id === item.id) {
-          setLiked(true);
-        }
-      });
-    }
-  }, [likedArr]);
-
-  useEffect(() => {
-    if (addedBasketArr.length > 0) {
-      addedBasketArr.forEach((el) => {
-        if (el.id === item.id) {
-          setItemSelected(true);
-        }
-      });
-    } else {
-      setItemSelected(false);
-    }
-  }, [addedBasketArr.length]);
-
+  // console.log('render');
   function onAddedBasket(item) {
     dispatch(addedBasket(item));
   }
@@ -45,7 +22,7 @@ const Sneakers = memo(({ item }) => {
 
   return (
     <div onClick={() => onLike(item.id)} key={item.id} className="sneakers_card">
-      {liked && (
+      {likedArr.filter((el) => el.id === item.id).length !== 0 && (
         <img
           width="50"
           className="like"
@@ -62,7 +39,7 @@ const Sneakers = memo(({ item }) => {
           <p>ЦЕНА:</p>
           <p>{item.price}руб.</p>
         </div>
-        {!itemSelected ? (
+        {addedBasketArr.filter((el) => el.id === item.id).length === 0 ? (
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -75,7 +52,6 @@ const Sneakers = memo(({ item }) => {
             onClick={(e) => {
               e.stopPropagation();
               dispatch(removeFromTrash(item.id));
-              setItemSelected(false);
             }}
             src="https://as2.ftcdn.net/v2/jpg/03/03/72/13/500_F_303721320_IE2JJEW9JLhuIzzoIsBDLuZ3silkP3zX.jpg"
             alt="selected"

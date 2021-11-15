@@ -3,13 +3,15 @@ import { useState, useEffect } from 'react';
 import Basket from '../offcanvas/Basket';
 import { useRef } from 'react';
 import { useSelector } from 'react-redux';
-
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   // console.log('render');
-  const { addedBasketArr, likedArr } = useSelector((state) => state);
+  const { addedBasketArr } = useSelector((state) => state.basketReducer);
+  const { likedArr } = useSelector((state) => state.reducer);
   const [basket, setBasket] = useState(false);
+  const [onMouse, setOnMouse] = useState('');
+  //ref//
   const basketRef = useRef();
   const content = useRef();
   const transformLike = useRef();
@@ -54,6 +56,9 @@ const Header = () => {
         <nav>
           <ul>
             <li
+              id="li_mouse"
+              onMouseOver={() => setOnMouse('Корзина')}
+              onMouseOut={() => setOnMouse('')}
               onClick={() => {
                 setBasket(!basket);
                 document.querySelector('body').style.overflow = 'hidden';
@@ -64,8 +69,14 @@ const Header = () => {
                 alt="корзина"
               />
               <span>{price} P</span>
+              {onMouse === 'Корзина' && <p className="onMouse">{onMouse}</p>}
             </li>
-            <NavLink ref={transformLike} to="/Purchases">
+            <NavLink
+              id="li_mouse"
+              onMouseOver={() => setOnMouse('Выбранные')}
+              onMouseOut={() => setOnMouse('')}
+              ref={transformLike}
+              to="/Purchases">
               {likedArr.length === 0 ? (
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/3388/3388803.png"
@@ -79,14 +90,20 @@ const Header = () => {
                   alt="like"
                 />
               )}
+              {onMouse === 'Выбранные' && <p className="onMouse">{onMouse}</p>}
             </NavLink>
-            <li>
+            <NavLink
+              id="li_mouse"
+              onMouseOver={() => setOnMouse('Купленные')}
+              onMouseOut={() => setOnMouse('')}
+              to="/Bought">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/46/46646.png"
                 alt="contact"
                 width="30"
               />
-            </li>
+              {onMouse === 'Купленные' && <p className="onMouse">{onMouse}</p>}
+            </NavLink>
           </ul>
         </nav>
       </header>

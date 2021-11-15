@@ -3,10 +3,11 @@ import { useEffect, useState } from 'react';
 import { addedBasket, removeLikedItem } from '../../actions/action';
 import './purchases.scss';
 import { NavLink } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const Purchases = () => {
   // console.log('render');
-  const likedArr = useSelector((state) => state.likedArr);
+  const likedArr = useSelector((state) => state.reducer.likedArr);
   const dispatch = useDispatch();
   const [like, setLike] = useState(false);
 
@@ -18,6 +19,10 @@ const Purchases = () => {
   // console.log(likedArr);
   return (
     <>
+      <Helmet>
+        <meta name="description" content="Web site created using create-react-app" />
+        <title>Sneakers Selected</title>
+      </Helmet>
       <div className="liked">
         <NavLink to="/" className="back">
           <img width="15" src="https://cdn-icons-png.flaticon.com/512/54/54782.png" alt="left" />

@@ -4,12 +4,10 @@ import './index.css';
 import App from './components/app/App';
 import { Provider } from 'react-redux';
 import store from './store';
-import Example from './components/offcanvas/Offcanvas';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* <Example /> */}
       <App />
     </Provider>
   </React.StrictMode>,
