@@ -30,6 +30,7 @@ const Header = () => {
       }
     }
     document.addEventListener('click', basketHidden);
+
     return () => {
       document.removeEventListener('click', basketHidden);
     };
@@ -73,7 +74,7 @@ const Header = () => {
             </li>
             <NavLink
               id="li_mouse"
-              onMouseOver={() => setOnMouse('Выбранные')}
+              onMouseOver={() => setOnMouse('Выбраннo')}
               onMouseOut={() => setOnMouse('')}
               ref={transformLike}
               to="/Purchases">
@@ -90,7 +91,9 @@ const Header = () => {
                   alt="like"
                 />
               )}
-              {onMouse === 'Выбранные' && <p className="onMouse">{onMouse}</p>}
+              {onMouse === 'Выбраннo' && (
+                <p className="onMouse">{`${onMouse}:${likedArr.length}`}</p>
+              )}
             </NavLink>
             <NavLink
               id="li_mouse"

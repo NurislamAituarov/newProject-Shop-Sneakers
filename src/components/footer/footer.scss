@@ -1,0 +1,30 @@
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  padding-bottom: 0px;
+  div {
+    border-radius: 10px;
+    width: 30%;
+    box-shadow: 1px 1px 4px 1px rgb(190, 190, 190);
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      cursor: pointer;
+    }
+  }
+  .right {
+    background-color: rgb(112, 112, 112);
+  }
+}
+
+@media (max-width: 520px) {
+  footer {
+    display: block;
+    div {
+      width: 100%;
+    }
+  }
+}

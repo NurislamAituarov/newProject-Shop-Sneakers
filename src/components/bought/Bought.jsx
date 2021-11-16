@@ -61,9 +61,19 @@ const Bought = () => {
                   />
                 </div>
                 <span id="arrival_time">
-                  Время прибытие заказа:
+                  {
+                    <div id="time">
+                      <p>Время заказа: </p>
+                      {date.getFullYear() +
+                        '  ' +
+                        date.getDate() +
+                        '  ' +
+                        new Date().toLocaleString('ru', { month: 'long' })}
+                    </div>
+                  }
                   {
                     <div>
+                      <p>Время прибытие заказа: </p>
                       {date.getFullYear() +
                         '  ' +
                         (date.getDate() + 15 > 31
