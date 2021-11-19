@@ -76,3 +76,15 @@
     grid-template-columns: 1fr;
   }
 }
+@media (max-width: 400px) {
+  .sneakers_wrapper {
+    box-sizing: border-box;
+    .sneakers_card {
+      padding: 25px;
+      .sneakers_img {
+        width: 200px;
+        margin: 0 auto;
+      }
+    }
+  }
+}

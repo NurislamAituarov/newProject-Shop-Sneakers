@@ -60,6 +60,7 @@ const Basket = ({ basketRef, content, setBasket }) => {
         ) : (
           <div className="empty_cart">
             <img
+              id="basket_img"
               width="120"
               src="https://cdn-icons-png.flaticon.com/512/60/60992.png"
               alt="basket"

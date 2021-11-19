@@ -35,7 +35,7 @@
         margin-bottom: 20px;
       }
       h5 {
-        width: 150px;
+        max-width: 150px;
         margin-bottom: 20px;
       }
       button {
@@ -104,7 +104,7 @@
     justify-content: space-between;
     background-color: #25d3ca;
     color: rgb(0, 0, 0);
-    width: 300px;
+    max-width: 300px;
     cursor: pointer;
     margin-top: 30px;
     padding: 15px 30px;
@@ -128,6 +128,45 @@
   .empty_cart {
     span {
       display: block;
+    }
+  }
+}
+@media (max-width: 400px) {
+  .basket .div .item_card {
+    padding: 20px;
+    button {
+      margin-top: 10px;
+      padding: 5px 10px;
+    }
+  }
+  .item_card {
+    img {
+      width: 80px;
+    }
+  }
+  .basket .div {
+    p {
+      text-align: center;
+    }
+    width: 40%;
+    .empty_cart {
+      #basket_img {
+        width: 90px;
+      }
+    }
+  }
+  .checkout {
+    p {
+      width: 130px;
+      flex-wrap: wrap;
+    }
+    span {
+      border-radius: 10px;
+      max-width: 130px;
+      padding: 10px;
+      img {
+        width: 20px;
+      }
     }
   }
 }

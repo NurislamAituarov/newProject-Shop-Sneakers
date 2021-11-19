@@ -103,3 +103,32 @@ h1 {
     color: white;
   }
 }
+
+// media
+
+@media (max-width: 400px) {
+  .liked {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  .wrapper_like {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  .sneakers_card {
+    padding: 20px;
+    img:nth-child(2) {
+      width: 150px;
+      height: 150px;
+    }
+  }
+  .noPurchases {
+    padding: 10px;
+    img {
+      width: 50px;
+    }
+    h5 {
+      font-size: 15px;
+    }
+  }
+}
