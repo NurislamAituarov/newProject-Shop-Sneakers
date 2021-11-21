@@ -7,6 +7,8 @@ import '../selected/purchases.scss';
 import './bought.scss';
 import '../sneakers/Sneakers.scss';
 
+import image from '../../image/heart.png';
+
 const Bought = () => {
   let boughtSneakers = useSelector((state) => state.basketReducer.bought);
   const dispatch = useDispatch();
@@ -41,12 +43,7 @@ const Bought = () => {
           {boughtSneakers.map((item) => {
             return (
               <div key={item.id} className="sneakers_card">
-                <img
-                  width="50"
-                  className="like like_bought"
-                  src="https://cdn-icons.flaticon.com/png/512/4209/premium/4209081.png?token=exp=1636697373~hmac=be44ec65870e09a46061f012d039b644"
-                  alt="like"
-                />
+                <img width="50" className="like like_bought" src={image} alt="like" />
                 <img width="180" height="180" src={item.url} alt="like" />
                 <h5>{item.name}</h5>
                 <div className="card_price">

@@ -1,6 +1,8 @@
 import './footer.scss';
 import { useRef } from 'react';
 
+import smile from '../../image/smile.jpg';
+
 const Footer = () => {
   const img = useRef();
   const left = useRef();
@@ -29,15 +31,7 @@ const Footer = () => {
   return (
     <footer>
       <div ref={left} onDragOver={allowDrag} onDrop={dropLeft} className="left">
-        <img
-          onDragStart={drag}
-          ref={img}
-          id="img"
-          src="https://cdn-icons.flaticon.com/png/512/2470/premium/2470092.png?token=exp=1637043956~hmac=5bd6e90b3dc71267f59b94e76ec788fd"
-          alt="smile"
-          width="50px"
-          draggable
-        />
+        <img onDragStart={drag} ref={img} id="img" src={smile} alt="smile" width="50px" draggable />
       </div>
       <div onDragOver={allowDrag} ref={right} onDrop={dropRight} className="right"></div>
     </footer>

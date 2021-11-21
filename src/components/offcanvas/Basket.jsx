@@ -3,6 +3,8 @@ import { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromTrash, removeFromTrashAll, boughtSneakers } from '../../actions/action';
 
+import left from '../../image/left.png';
+
 const Basket = ({ basketRef, content, setBasket }) => {
   const addedBasketItem = useSelector((state) => state.basketReducer.addedBasketArr);
   const dispatch = useDispatch();
@@ -72,11 +74,7 @@ const Basket = ({ basketRef, content, setBasket }) => {
                 setBasket(false);
                 document.querySelector('body').style.overflow = '';
               }}>
-              <img
-                width="30"
-                src="https://cdn-icons.flaticon.com/png/512/2040/premium/2040518.png?token=exp=1636649878~hmac=45e799f33092d043549a4089cf979df2"
-                alt="back"></img>{' '}
-              <p>Вернуться назад</p>
+              <img width="30" src={left} alt="back"></img> <p>Вернуться назад</p>
             </span>
           </div>
         )}
