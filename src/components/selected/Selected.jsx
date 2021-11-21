@@ -5,6 +5,8 @@ import './purchases.scss';
 import { NavLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
+import image from '../../image/heart.png';
+
 const Purchases = () => {
   // console.log('render');
   const likedArr = useSelector((state) => state.reducer.likedArr);
@@ -39,7 +41,7 @@ const Purchases = () => {
                     onClick={() => dispatch(removeLikedItem(item.id))}
                     width="50"
                     className="like"
-                    src="https://cdn-icons.flaticon.com/png/512/4209/premium/4209081.png?token=exp=1636697373~hmac=be44ec65870e09a46061f012d039b644"
+                    src={image}
                     alt="like"
                   />
                 )}

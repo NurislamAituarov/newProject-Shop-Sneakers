@@ -5,6 +5,8 @@ import { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
+import image from '../../image/heart.png';
+
 const Header = () => {
   // console.log('render');
   const { addedBasketArr } = useSelector((state) => state.basketReducer);
@@ -82,14 +84,10 @@ const Header = () => {
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/3388/3388803.png"
                   width="20"
-                  alt="сердце"
+                  alt="heart"
                 />
               ) : (
-                <img
-                  width="30"
-                  src="https://cdn-icons.flaticon.com/png/512/4209/premium/4209081.png?token=exp=1636697373~hmac=be44ec65870e09a46061f012d039b644"
-                  alt="like"
-                />
+                <img width="30" src={image} alt="like" />
               )}
               {onMouse === 'Выбраннo' && (
                 <p className="onMouse">{`${onMouse}:${likedArr.length}`}</p>

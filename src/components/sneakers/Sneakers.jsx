@@ -5,6 +5,8 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import { useState, memo } from 'react';
 import { addedBasket, removeFromTrash, likedItem, removeLikedItem } from '../../actions/action';
 
+import image from '../../image/heart.png';
+
 const Sneakers = memo(({ item }) => {
   const { addedBasketArr } = useSelector((state) => state.basketReducer);
   const { likedArr } = useSelector((state) => state.reducer);
@@ -22,14 +24,18 @@ const Sneakers = memo(({ item }) => {
 
   return (
     <div onClick={() => onLike(item.id)} key={item.id} className="sneakers_card">
-      {likedArr.filter((el) => el.id === item.id).length !== 0 && (
-        <img
-          width="50"
-          className="like"
-          src="https://cdn-icons.flaticon.com/png/512/4209/premium/4209081.png?token=exp=1636697373~hmac=be44ec65870e09a46061f012d039b644"
-          alt="like"
-        />
-      )}
+      <div className="heart">
+        {likedArr.filter((el) => el.id === item.id).length !== 0 ? (
+          <img width="50" className="like" src={image} alt="like" />
+        ) : (
+          <img
+            style={{ opacity: 0.3 }}
+            width="35"
+            src="https://cdn-icons-png.flaticon.com/512/14/14815.png"
+            alt="like"
+          />
+        )}
+      </div>
       <div className="sneakers_img">
         <LazyLoadImage effect="blur" src={item.url} alt="card" width="180" />
       </div>
