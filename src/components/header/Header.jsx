@@ -46,7 +46,7 @@ const Header = () => {
   return (
     <>
       <header>
-        <NavLink to="/" onMouseEnter={transform} className="logo">
+        <NavLink to="/newProject-Shop-Sneakers" onMouseEnter={transform} className="logo">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwAAsla-fY3kXd6QPAOpDyJVMF9O7PM10x0o9JyQ9Z9M1FU4o7pu3psMhO8Pv_CuRGdw4&usqp=CAU"
             alt="logo"

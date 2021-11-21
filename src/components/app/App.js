@@ -20,7 +20,7 @@ function App() {
         <Suspense fallback={<h1>Loading...</h1>}>
           <ErrorBoundary>
             <Routes>
-              <Route path="/" element={<Main />} />
+              <Route path="/newProject-Shop-Sneakers" element={<Main />} />
               <Route path="/Purchases" element={<Purchases />} />
               <Route path="/Bought" element={<Bought />} />
             </Routes>

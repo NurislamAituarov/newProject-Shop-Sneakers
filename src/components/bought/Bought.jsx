@@ -31,7 +31,7 @@ const Bought = () => {
         <title>React Bought</title>
       </Helmet>
       <div className="liked">
-        <NavLink to="/" className="back">
+        <NavLink to="/newProject-Shop-Sneakers" className="back">
           <img width="15" src="https://cdn-icons-png.flaticon.com/512/54/54782.png" alt="left" />
         </NavLink>
         <h1>Купленные </h1>

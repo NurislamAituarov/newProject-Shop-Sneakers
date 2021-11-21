@@ -24,7 +24,7 @@ const Purchases = () => {
         <title>Sneakers Selected</title>
       </Helmet>
       <div className="liked">
-        <NavLink to="/" className="back">
+        <NavLink to="/newProject-Shop-Sneakers" className="back">
           <img width="15" src="https://cdn-icons-png.flaticon.com/512/54/54782.png" alt="left" />
         </NavLink>
         <h1>Выбранные </h1>
@@ -65,7 +65,7 @@ const Purchases = () => {
           />
           <h5>У вас нет заказов</h5>
           <p>Нужно что нибудь купить или выбрать</p>
-          <NavLink className="button" to="/">
+          <NavLink className="button" to="/newProject-Shop-Sneakers">
             back
           </NavLink>
         </div>
