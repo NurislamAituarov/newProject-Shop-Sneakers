@@ -21,6 +21,7 @@ const Header = () => {
   let price = addedBasketArr.reduce((acu, el) => {
     return el.price + acu;
   }, 0);
+
   useEffect(() => {
     if (basket) {
       content.current.style.transform = 'translateX(0)';
@@ -37,7 +38,6 @@ const Header = () => {
       document.removeEventListener('click', basketHidden);
     };
   }, [basket]);
-  // console.log(price);
 
   function transform() {
     transformLike.current.style.transform = 'translateX(20px) scale(.7)';

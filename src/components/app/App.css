@@ -21,6 +21,7 @@ hr {
 /* media */
 @media (max-width: 400px) {
   .App {
-    padding: 10px;
+    padding: 18px;
+    margin: 0;
   }
 }
